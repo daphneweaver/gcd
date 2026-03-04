@@ -9,7 +9,6 @@ signal activated
 @onready var margin_container = $AspectRatioContainer/MarginContainer
 
 func _on_gui_input(event: InputEvent) -> void:
-	print("bang")
 	if event.is_action_pressed("left_click"):
 		activated.emit()
 
