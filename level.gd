@@ -22,6 +22,9 @@ func _on_color_rect_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
 		activated.emit(data["level"])
 
+func _on_number_activated(number) -> void:
+	print(number.index)
+
 func set_level(level: int) -> void:
 	var file = FileAccess.open("res://levels/@.json".replace("@", str(level)), FileAccess.READ)
 	var content = file.get_as_text()
@@ -29,14 +32,16 @@ func set_level(level: int) -> void:
 	data["level"] = level
 
 	grid_container.set_deferred("columns", data["map"][0].size())
-	for row in data["map"]:
-		for col in row:
+	for y in data["map"].size():
+		for x in data["map"][y].size():
 			var number = number_scene.instantiate()
 			grid_container.add_child(number)
-			number.set_number(col)
+			number.index = Vector2i(x, y)
+			number.set_number(data["map"][y][x])
+			number.activated.connect(_on_number_activated)
 
 func enable() -> void:
-	color_rect.mouse_filter = MOUSE_FILTER_PASS
+	color_rect.mouse_filter = MOUSE_FILTER_IGNORE
 
 func disable() -> void:
 	color_rect.mouse_filter = MOUSE_FILTER_STOP

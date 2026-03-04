@@ -13,6 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 script = ExtResource("1_77j1r")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1767166384]
@@ -50,6 +51,7 @@ theme_override_constants/v_separation = 0
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=691629389]
 layout_mode = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [connection signal="resized" from="." to="." method="_on_resized"]
