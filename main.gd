@@ -1,13 +1,16 @@
 extends Control
 
-@onready var level_container = $Background/VBoxContainer/LevelContainer
-@onready var button_container = $Background/VBoxContainer/ButtonContainer
-@onready var close_button = $Background/VBoxContainer/ButtonContainer/CloseButton
+@onready var margin_container = $Background/MarginContainer
+@onready var level_container = $Background/MarginContainer/VBoxContainer/LevelContainer
+@onready var button_container = $Background/MarginContainer/VBoxContainer/ButtonContainer
+@onready var close_button = $Background/MarginContainer/VBoxContainer/ButtonContainer/CloseButton
 
 func _ready() -> void:
 	resized.emit()
 
 func _on_resized() -> void:
+	if margin_container:
+		margin_container.add_theme_constant_override("margin_bottom", size.x / 32)
 	if button_container:
 		button_container.custom_minimum_size.y = size.x / 4
 

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bl5owg42rkdxs"]
 
-[ext_resource type="Script" uid="uid://dpy1lavw4io6u" path="res://ui_button.gd" id="2_itcfk"]
+[ext_resource type="Script" uid="uid://dpy1lavw4io6u" path="res://button.gd" id="2_itcfk"]
 [ext_resource type="PackedScene" uid="uid://cgqhsigwkoxdt" path="res://frame.tscn" id="2_s7766"]
 
-[node name="UIButton" type="Control" unique_id=2111009040]
+[node name="Button" type="Control" unique_id=2111009040]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

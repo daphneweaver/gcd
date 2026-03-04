@@ -25,27 +25,31 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background" unique_id=1007560755]
+[node name="MarginContainer" type="MarginContainer" parent="Background" unique_id=1450324400]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer" unique_id=1007560755]
+layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="LevelContainer" parent="Background/VBoxContainer" unique_id=1654084315 instance=ExtResource("5_7mycd")]
+[node name="LevelContainer" parent="Background/MarginContainer/VBoxContainer" unique_id=1654084315 instance=ExtResource("5_7mycd")]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ButtonContainer" type="HBoxContainer" parent="Background/VBoxContainer" unique_id=2096342377]
+[node name="ButtonContainer" type="HBoxContainer" parent="Background/MarginContainer/VBoxContainer" unique_id=2096342377]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="CloseButton" parent="Background/VBoxContainer/ButtonContainer" unique_id=2111009040 instance=ExtResource("4_1bvp3")]
+[node name="CloseButton" parent="Background/MarginContainer/VBoxContainer/ButtonContainer" unique_id=2111009040 instance=ExtResource("4_1bvp3")]
 layout_mode = 2
+text = "❌"
 
 [connection signal="resized" from="." to="." method="_on_resized"]
-[connection signal="closed" from="Background/VBoxContainer/LevelContainer" to="." method="_on_puzzle_container_closed"]
-[connection signal="opened" from="Background/VBoxContainer/LevelContainer" to="." method="_on_puzzle_container_opened"]
-[connection signal="activated" from="Background/VBoxContainer/ButtonContainer/CloseButton" to="." method="_on_close_button_activated"]
+[connection signal="closed" from="Background/MarginContainer/VBoxContainer/LevelContainer" to="." method="_on_puzzle_container_closed"]
+[connection signal="opened" from="Background/MarginContainer/VBoxContainer/LevelContainer" to="." method="_on_puzzle_container_opened"]
+[connection signal="activated" from="Background/MarginContainer/VBoxContainer/ButtonContainer/CloseButton" to="." method="_on_close_button_activated"]

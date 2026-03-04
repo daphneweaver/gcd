@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c84a1qkf7e5ms" path="res://placeholder.tscn" id="1_03ub4"]
 [ext_resource type="Script" uid="uid://dbtj15v682rng" path="res://level.gd" id="1_77j1r"]
+[ext_resource type="PackedScene" uid="uid://cgqhsigwkoxdt" path="res://frame.tscn" id="3_oi3di"]
 
 [node name="Level" type="Control" unique_id=799034316]
 layout_mode = 3
@@ -14,23 +15,42 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_77j1r")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=491396483]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1767166384]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=491396483]
+layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="History" parent="VBoxContainer" unique_id=1278764976 instance=ExtResource("1_03ub4")]
+[node name="History" parent="MarginContainer/VBoxContainer" unique_id=1278764976 instance=ExtResource("1_03ub4")]
 layout_mode = 2
 text = "History"
 
-[node name="Puzzle" parent="VBoxContainer" unique_id=459151369 instance=ExtResource("1_03ub4")]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer" unique_id=180826942]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Puzzle"
 
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[node name="Frame" parent="MarginContainer/VBoxContainer/AspectRatioContainer" unique_id=1640286120 instance=ExtResource("3_oi3di")]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/AspectRatioContainer/Frame" unique_id=132538869]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=691629389]
+layout_mode = 2
+color = Color(0, 0, 0, 0)
+
 [connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="gui_input" from="MarginContainer/ColorRect" to="." method="_on_color_rect_gui_input"]

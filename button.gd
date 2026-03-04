@@ -21,7 +21,7 @@ func enable() -> void:
 	set_margins(0)
 
 func disable() -> void:
-	set_margins(size.x / 4)
+	set_margins(1.5 * size.y)
 
 func set_margins(offset: int) -> void:
 	var tween = create_tween()

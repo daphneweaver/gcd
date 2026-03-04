@@ -7,17 +7,17 @@ signal closed
 @onready var aspect_ratio_container = $MarginContainer/AspectRatioContainer
 @onready var h_box_container = $MarginContainer/AspectRatioContainer/HBoxContainer
 
-var puzzle_scene = preload("res://level.tscn")
+var level_scene = preload("res://level.tscn")
 var number_of_levels
-var state = {"open": true, "level": 1}
+var state = {"open": true, "level": 0}
 
 func _ready() -> void:
-	number_of_levels = 10
+	number_of_levels = 2
 	for i in range(number_of_levels):
-		var puzzle = puzzle_scene.instantiate()
-		puzzle.level = i + 1
-		puzzle.activated.connect(_on_puzzle_activated)
-		h_box_container.add_child(puzzle)
+		var level = level_scene.instantiate()
+		h_box_container.add_child(level)
+		level.set_level(i)
+		level.activated.connect(_on_puzzle_activated)
 
 func _on_resized() -> void:
 	if margin_container:
@@ -34,22 +34,24 @@ func _on_puzzle_activated(level: int):
 
 func open() -> void:
 	state["open"] = true
+	h_box_container.get_children()[state["level"]].enable()
 	update_margins(true)
 	opened.emit()
 	
 func close() -> void:
 	state["open"] = false
 	update_margins(true)
+	h_box_container.get_children()[state["level"]].disable()
 	closed.emit()
 
 func update_margins(animate: bool) -> void:
 	var h_margin
 	var v_margin
 	if state["open"]:
-		h_margin = (number_of_levels + 1 - 2 * state["level"]) * size.x / 2
+		h_margin = (number_of_levels - 1 - 2 * state["level"]) * size.x / 2
 		v_margin = 0
 	else:
-		h_margin = (number_of_levels + 1 - 2 * state["level"]) * size.x / 4
+		h_margin = (number_of_levels - 1 - 2 * state["level"]) * size.x / 4
 		v_margin = size.y / 4
 		
 	if animate:
