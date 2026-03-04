@@ -2,18 +2,14 @@ extends Control
 
 signal activated
 
-@export var text: String:
-	set(text):
-		$AspectRatioContainer/MarginContainer/Frame/Label.text = text
+@export var symbol: String:
+	set(symbol):
+		$AspectRatioContainer/MarginContainer/Frame/Symbol.text = symbol
 
 @onready var margin_container = $AspectRatioContainer/MarginContainer
-@onready var label = $AspectRatioContainer/MarginContainer/Frame/Label
-
-func _on_resized() -> void:
-	if label:
-		label.add_theme_font_size_override("font_size", size.y / 2)
 
 func _on_gui_input(event: InputEvent) -> void:
+	print("bang")
 	if event.is_action_pressed("left_click"):
 		activated.emit()
 

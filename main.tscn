@@ -47,7 +47,7 @@ theme_override_constants/separation = 0
 
 [node name="CloseButton" parent="Background/MarginContainer/VBoxContainer/ButtonContainer" unique_id=2111009040 instance=ExtResource("4_1bvp3")]
 layout_mode = 2
-text = "❌"
+symbol = "❌"
 
 [connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="closed" from="Background/MarginContainer/VBoxContainer/LevelContainer" to="." method="_on_puzzle_container_closed"]
