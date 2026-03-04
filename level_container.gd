@@ -18,6 +18,7 @@ func _ready() -> void:
 		h_box_container.add_child(level)
 		level.set_level(i)
 		level.activated.connect(_on_puzzle_activated)
+	h_box_container.get_children()[state["level"]].enable()
 
 func _on_resized() -> void:
 	if margin_container:

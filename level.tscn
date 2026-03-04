@@ -51,7 +51,6 @@ theme_override_constants/v_separation = 0
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=691629389]
 layout_mode = 2
-mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
 [connection signal="resized" from="." to="." method="_on_resized"]
