@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c84a1qkf7e5ms"]
+
+[ext_resource type="PackedScene" uid="uid://cgqhsigwkoxdt" path="res://frame.tscn" id="1_a3njk"]
+
+[node name="Placeholder" type="Label" unique_id=1278764976]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Frame" parent="." unique_id=1640286120 instance=ExtResource("1_a3njk")]
+layout_mode = 1

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c8tl51pm3ws44"]
+
+[ext_resource type="PackedScene" uid="uid://c84a1qkf7e5ms" path="res://placeholder.tscn" id="1_03ub4"]
+[ext_resource type="Script" uid="uid://dbtj15v682rng" path="res://level.gd" id="1_77j1r"]
+
+[node name="Level" type="Control" unique_id=799034316]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_77j1r")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=491396483]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="History" parent="VBoxContainer" unique_id=1278764976 instance=ExtResource("1_03ub4")]
+layout_mode = 2
+text = "History"
+
+[node name="Puzzle" parent="VBoxContainer" unique_id=459151369 instance=ExtResource("1_03ub4")]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Puzzle"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="resized" from="." to="." method="_on_resized"]

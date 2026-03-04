@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bl5owg42rkdxs"]
+
+[ext_resource type="Script" uid="uid://dpy1lavw4io6u" path="res://ui_button.gd" id="2_itcfk"]
+[ext_resource type="PackedScene" uid="uid://cgqhsigwkoxdt" path="res://frame.tscn" id="2_s7766"]
+
+[node name="UIButton" type="Control" unique_id=2111009040]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("2_itcfk")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1783292618]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer" unique_id=1429363050]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Frame" parent="AspectRatioContainer/MarginContainer" unique_id=1640286120 instance=ExtResource("2_s7766")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/MarginContainer/Frame" unique_id=1014147328]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="resized" from="." to="." method="_on_resized"]

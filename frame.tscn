@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cgqhsigwkoxdt"]
+
+[ext_resource type="Texture2D" uid="uid://dgennx205qbk" path="res://art/frame.png" id="1_m7nv7"]
+
+[node name="Frame" type="NinePatchRect" unique_id=1640286120]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_m7nv7")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16

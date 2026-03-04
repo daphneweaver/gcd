@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bftf8f6gqyt53"]
+
+[ext_resource type="Script" uid="uid://b6hneq0og3u7m" path="res://main.gd" id="1_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bl5owg42rkdxs" path="res://button.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b7j732bjp05aq" path="res://level_container.tscn" id="5_7mycd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2yge"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Main" type="Control" unique_id=773716562]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lquwl")
+
+[node name="Background" type="Panel" parent="." unique_id=1445543391]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h2yge")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background" unique_id=1007560755]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="LevelContainer" parent="Background/VBoxContainer" unique_id=1654084315 instance=ExtResource("5_7mycd")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonContainer" type="HBoxContainer" parent="Background/VBoxContainer" unique_id=2096342377]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CloseButton" parent="Background/VBoxContainer/ButtonContainer" unique_id=2111009040 instance=ExtResource("4_1bvp3")]
+layout_mode = 2
+
+[connection signal="resized" from="." to="." method="_on_resized"]
+[connection signal="closed" from="Background/VBoxContainer/LevelContainer" to="." method="_on_puzzle_container_closed"]
+[connection signal="opened" from="Background/VBoxContainer/LevelContainer" to="." method="_on_puzzle_container_opened"]
+[connection signal="activated" from="Background/VBoxContainer/ButtonContainer/CloseButton" to="." method="_on_close_button_activated"]
