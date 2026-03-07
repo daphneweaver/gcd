@@ -27,5 +27,5 @@ color = Color(0, 0, 0, 0)
 [node name="Symbol" parent="ColorRect" unique_id=207290136 instance=ExtResource("2_4ajyc")]
 layout_mode = 1
 
-[connection signal="resized" from="." to="." method="_on_resized"]
 [connection signal="gui_input" from="ColorRect" to="." method="_on_color_rect_gui_input"]
+[connection signal="mouse_entered" from="ColorRect" to="." method="_on_color_rect_mouse_entered"]

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c84a1qkf7e5ms" path="res://placeholder.tscn" id="1_03ub4"]
 [ext_resource type="Script" uid="uid://dbtj15v682rng" path="res://level.gd" id="1_77j1r"]
 [ext_resource type="PackedScene" uid="uid://cgqhsigwkoxdt" path="res://frame.tscn" id="3_oi3di"]
+[ext_resource type="PackedScene" uid="uid://d2yeipe0qk34k" path="res://puzzle.tscn" id="4_0b4ue"]
 
 [node name="Level" type="Control" unique_id=799034316]
 layout_mode = 3
@@ -39,15 +40,8 @@ size_flags_vertical = 3
 [node name="Frame" parent="MarginContainer/VBoxContainer/AspectRatioContainer" unique_id=1640286120 instance=ExtResource("3_oi3di")]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/AspectRatioContainer/Frame" unique_id=132538869]
+[node name="Puzzle" parent="MarginContainer/VBoxContainer/AspectRatioContainer/Frame" unique_id=1657600832 instance=ExtResource("4_0b4ue")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/h_separation = 0
-theme_override_constants/v_separation = 0
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer" unique_id=691629389]
 layout_mode = 2

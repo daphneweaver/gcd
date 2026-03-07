@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d2yeipe0qk34k"]
+
+[ext_resource type="Script" uid="uid://c0dxcnso4iokb" path="res://puzzle.gd" id="1_03ub4"]
+
+[node name="Puzzle" type="Control" unique_id=1657600832]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_03ub4")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1833487029]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line2D" type="Line2D" parent="." unique_id=463731452]
+default_color = Color(0, 0, 0, 0.49803922)
+
+[connection signal="resized" from="." to="." method="_on_resized"]
